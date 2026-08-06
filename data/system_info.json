@@ -1,0 +1,12 @@
+{
+    "fecha_generacion": "2026-08-06T15:32:21",
+    "sistema_operativo": "Windows",
+    "plataforma": "Windows-10-10.0.19045-SP0",
+    "arquitectura": "AMD64",
+    "modelo_procesador": "Intel(R) Core(TM) i3-10105F CPU @ 3.70GHz",
+    "nucleos_logicos": 8,
+    "version_python": "3.14.6",
+    "nucleos_fisicos": 4,
+    "memoria_ram_total_bytes": 17040797696,
+    "memoria_ram_total_gb": 15.87
+}
