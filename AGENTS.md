@@ -8,6 +8,13 @@ Implementar una multiplicación de matrices propia y comparar su rendimiento
 con `numpy`, generando mediciones, gráficos y documentación. Es un proyecto
 académico correspondiente a las entregas P0E1 y P0E2.
 
+## Instrucción principal
+
+Antes de trabajar, leé `PENDIENTES.md` completo y seguí su **plan de acción**
+de forma **autónoma**, verificando cada paso (instalaciones, clones, venv,
+pytest, commits, push) sin pedir permiso al estudiante. Solo consultalo si algo
+te bloquea o necesitás datos que no están en el repositorio.
+
 ## Reglas
 
 - Mantener el código sencillo y legible.

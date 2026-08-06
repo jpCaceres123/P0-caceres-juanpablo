@@ -1,8 +1,76 @@
 # PENDIENTES — Proyecto P0 (MatMul)
 
-Este archivo es una nota de traspaso. Sirve para dar contexto a la IA de
-OpenCode que continúe el trabajo: qué es el proyecto, qué está hecho, qué
-falta y cómo trabajar. Léelo completo antes de empezar a modificar código.
+Este archivo es una nota de traspaso y un **plan de acción**. La IA de
+OpenCode que continúe este trabajo debe leerlo completo y ejecutar el plan de
+forma **autónoma**, sin pedir permiso para cada paso. Solo debe consultar al
+estudiante si algo la bloquea o necesita datos que no están en el repositorio.
+
+## 0. PLAN DE ACCIÓN (ejecutar en orden, verificando cada paso)
+
+### Fase A — Dejar el ambiente funcionando en esta computadora
+
+1. Verificar que existen `git` y `python` (ejecutar `git --version` y
+   `python --version`).
+2. Si falta alguno, instalarlo con winget:
+   ```
+   winget install Git.Git
+   winget install Python.Python.3.14
+   ```
+   Puede aparecer un aviso de "permiso de administrador": pedirle al
+   estudiante que haga clic en **Sí**. Si no se encuentra `git`/`python`
+   después de instalar, usar las rutas completas (p. ej.
+   `C:\Program Files\Git\cmd\git.exe` y
+   `C:\Users\<usuario>\AppData\Local\Programs\Python\Python314\python.exe`).
+3. Configurar la identidad de Git si no está:
+   ```
+   git config --global user.name "Juan Pablo Caceres"
+   git config --global user.email "jpcaceres3@miuandes.cl"
+   ```
+4. Clonar el repositorio si no está clonado:
+   ```
+   git clone https://github.com/jpCaceres123/P0-caceres-juanpablo.git
+   cd P0-caceres-juanpablo
+   ```
+   (Si ya está clonado, abrir esa carpeta y ejecutar `git pull`.)
+5. Crear el ambiente virtual e instalar dependencias:
+   ```
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+6. Ejecutar las pruebas: `pytest`. **Deben pasar las 5 pruebas existentes.**
+
+### Fase B — Corregir la información del computador (obligatorio)
+
+`data/system_info.json` fue generado en OTRA computadora (Intel Core
+i3-10105F, 8 núcleos lógicos, 15.87 GB RAM, Windows 10 Pro). Hay que
+regenerarlo con los datos reales de esta máquina:
+
+1. Ejecutar `python src/system_info.py`.
+2. Si el sistema operativo o la versión de Python cambian respecto del
+   `README.md`, actualizar esas líneas en `README.md`.
+3. Hacer commit y push de esos cambios.
+
+### Fase C — Completar P0E2 (checklist)
+
+1. Revisar el **enunciado general de la tarea** si el estudiante lo entrega
+   (tamaños de matrices, formato del CSV, preguntas finales sobre OpenCode).
+2. Terminar `mimatmul` si el enunciado lo exige (casos borde y rendimiento).
+3. Completar todas las pruebas exigidas por el enunciado.
+4. Benchmark definitivo con **cuatro tamaños de matrices**: `mimatmul` vs
+   `numpy`. Agregar `numpy` y `matplotlib` a `requirements.txt` e instalarlos
+   en `.venv` cuando se usen.
+5. Guardar los resultados en un **archivo CSV definitivo** (por ejemplo en
+   `data/`).
+6. Generar el **gráfico final** de la comparación (revisar si el enunciado
+   pide escala logarítmica).
+7. Análisis de **CPU y RAM** durante el benchmark.
+8. `README.md` final con resultados, gráfico y **respuestas sobre OpenCode**.
+9. Hacer commit final de P0E2, subirlo a GitHub y entregar al estudiante:
+   - nombre: Juan Pablo Caceres;
+   - enlace al repo: https://github.com/jpCaceres123/P0-caceres-juanpablo;
+   - hash corto del commit (`git rev-parse --short HEAD`);
+   - frase de estado.
 
 ## 1. Contexto del trabajo
 
@@ -14,7 +82,8 @@ falta y cómo trabajar. Léelo completo antes de empezar a modificar código.
 - Repositorio público: https://github.com/jpCaceres123/P0-caceres-juanpablo
 - Entrega en Canvas: enlace al repo + hash corto del commit + frase de estado.
 - Estudiante: **Juan Pablo Caceres** — usuario GitHub `jpCaceres123`.
-- Fecha de P0E1: viernes 7 de agosto de 2026. Revisar la fecha de P0E2 en Canvas.
+- Fecha de P0E1: viernes 7 de agosto de 2026. Revisar la fecha de P0E2 en
+  Canvas.
 
 ## 2. Qué está hecho (P0E1, commit `c10de9f`)
 
@@ -32,46 +101,13 @@ falta y cómo trabajar. Léelo completo antes de empezar a modificar código.
 - Ambiente: Python 3.14.6, Git 2.55, ambiente virtual `.venv`.
 - Dependencias instaladas: `pytest`, `psutil`.
 
-## 3. ADVERTENCIA IMPORTANTE sobre la información del computador
+## 3. Cómo trabajar (reglas)
 
-`data/system_info.json` fue generado en **otra computadora** (no la del
-estudiante). Contiene: Intel Core i3-10105F, 8 núcleos lógicos / 4 físicos,
-15.87 GB RAM, Windows 10 Pro.
-
-**Al continuar en la computadora real del estudiante hay que:**
-1. Ejecutar `python src/system_info.py` para regenerar el JSON con los datos
-   verdaderos de esa máquina.
-2. Actualizar `README.md` si cambia el sistema operativo o la versión de
-   Python.
-3. Hacer un commit con esos cambios.
-
-## 4. Lo que falta para P0E2
-
-- [ ] Regenerar `data/system_info.json` en la computadora real y actualizar
-      el README (ver sección 3).
-- [ ] Terminar `mimatmul` si el enunciado general lo exige (casos borde y
-      rendimiento). Hoy cumple lo básico con triple bucle.
-- [ ] Completar todas las pruebas exigidas por el enunciado general.
-- [ ] Benchmark definitivo con **cuatro tamaños de matrices** comparando
-      `mimatmul` contra `numpy`.
-- [ ] Guardar los resultados en un **archivo CSV definitivo**.
-- [ ] Generar el **gráfico final** de la comparación (revisar si el enunciado
-      pide escala logarítmica).
-- [ ] Análisis de **CPU y RAM** durante el benchmark.
-- [ ] `README.md` final con resultados, gráfico y **respuestas sobre
-      OpenCode** (revisar las preguntas exactas del enunciado general).
-- [ ] Commit final de P0E2 y entrega en Canvas (nombre, enlace, hash corto,
-      frase de estado).
-
-## 5. Cómo trabajar (reglas para la IA de OpenCode)
-
-- Leer el enunciado general de la tarea si está disponible antes de asumir
-  requisitos (tamaños de matrices, formato CSV, preguntas finales).
 - Ejecutar las pruebas después de modificar código:
   ```
   pytest
   ```
-  (desde el ambiente virtual, en PowerShell: `.\.venv\Scripts\Activate.ps1`).
+  (desde el ambiente virtual: `.\.venv\Scripts\Activate.ps1`).
 - **No inventar mediciones**: los tiempos, CSV y gráfico deben salir de
   ejecutar el benchmark real, nunca de números supuestos.
 - Mantener el código sencillo y legible. Respetar el estilo existente.
@@ -81,4 +117,5 @@ estudiante). Contiene: Intel Core i3-10105F, 8 núcleos lógicos / 4 físicos,
   reset --hard). No subir credenciales.
 - Trabajar de forma incremental: pasos pequeños, commits con mensajes
   claros, verificar con pytest antes de cada commit.
-- Guiar al estudiante: explicar brevemente cada paso y qué genera.
+- Informar al estudiante al final: qué se hizo, qué archivos se generaron,
+  hash del commit final y qué falta (si queda algo).
