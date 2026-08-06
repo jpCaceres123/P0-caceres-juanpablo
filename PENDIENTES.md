@@ -39,6 +39,13 @@ estudiante si algo la bloquea o necesita datos que no están en el repositorio.
    pip install -r requirements.txt
    ```
 6. Ejecutar las pruebas: `pytest`. **Deben pasar las 5 pruebas existentes.**
+7. Verificar la autenticación de GitHub para poder hacer push (sin esto,
+   `git push` va a fallar):
+   - Ejecutar `gh auth status`. Si falla, instalar la CLI de GitHub
+     (`winget install GitHub.cli`) y ejecutar `gh auth login`.
+   - `gh auth login` es **interactivo y requiere al estudiante**: pedirle
+     que complete el login en el navegador con su cuenta `jpCaceres123`.
+     Es la única acción manual ineludible (GitHub lo exige).
 
 ### Fase B — Corregir la información del computador (obligatorio)
 
