@@ -31,8 +31,8 @@ RUTA_RECURSOS = RAIZ / "data" / "recursos_durante_benchmark.csv"
 RUTA_FIGURA = RAIZ / "figures" / "benchmark.png"
 
 TAMANOS = [25, 50, 100, 200]
-REPETICIONES = 5
-WARMUP = 1
+REPETICIONES = 10
+WARMUP = 2
 INTERVALO_MONITOR = 0.25
 
 
@@ -219,12 +219,14 @@ def generar_figura(filas, ruta):
     fig, eje = plt.subplots(figsize=(8, 5))
     for metodo, color in (("mimatmul", "tab:red"), ("numpy", "tab:blue")):
         tamanos = sorted(datos[metodo])
-        tiempos = [np.mean(datos[metodo][t]) for t in tamanos]
+        tiempos = [np.median(datos[metodo][t]) for t in tamanos]
         eje.plot(tamanos, tiempos, marker="o", color=color, label=metodo)
 
     eje.set_xlabel("Tamaño de la matriz (n x n)")
     eje.set_ylabel("Tiempo de ejecución (s, escala logarítmica)")
-    eje.set_title("Benchmark: mimatmul vs numpy (promedio de repeticiones)")
+    eje.set_title(
+        "Benchmark: mimatmul vs numpy (mediana de las repeticiones)"
+    )
     eje.set_yscale("log")
     eje.grid(True, which="both", linestyle="--", alpha=0.5)
     eje.legend()

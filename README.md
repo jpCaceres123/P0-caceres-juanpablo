@@ -94,24 +94,24 @@ matriz moderados.
 
 ## Resultados
 
-Gráfico del benchmark (promedio de 5 repeticiones por tamaño, escala
+Gráfico del benchmark (mediana de 10 repeticiones por tamaño, escala
 logarítmica en el eje Y):
 
 ![Benchmark: mimatmul vs numpy](figures/benchmark.png)
 
-Tiempos promedio observados (segundos):
+Tiempos medianos observados (segundos):
 
 | Tamaño | mimatmul | numpy | Diferencia |
 |---|---|---|---|
-| 25 | 0.0015 | 0.00006 | ~25× |
-| 50 | 0.0104 | 0.00004 | ~260× |
-| 100 | 0.0821 | 0.00022 | ~370× |
-| 200 | 0.7624 | 0.00047 | ~1600× |
+| 25 | 0.00165 | 0.000039 | ~42× |
+| 50 | 0.0134 | 0.000054 | ~250× |
+| 100 | 0.111 | 0.000234 | ~475× |
+| 200 | 0.983 | 0.000544 | ~1800× |
 
 Observaciones durante una ejecución representativa:
 
-- **CPU**: promedio 23.8 %, máximo 35.7 %.
-- **RAM**: promedio 88.1 %, máximo 88.4 %.
+- **CPU**: promedio 32.4 %, máximo 40.2 %.
+- **RAM**: promedio 88.0 %, máximo 88.5 %.
 - **GPU**: 0 % durante todo el benchmark.
 
 ### Comentario sobre el comportamiento observado
@@ -155,7 +155,10 @@ acción del proyecto.
   registrar actividad; se corrigió aumentando los tamaños a `[25, 50, 100,
   200]` y ajustando el monitor para que la primera lectura de CPU no fuera 0.
   También se corrigió el calentamiento para que NumPy ejecutara `A @ B` y no
-  `mimatmul`.
+  `mimatmul`. Luego, al repetir el benchmark, los tiempos de NumPy (decenas de
+  microsegundos) mostraban valores atípicos que desordenaban el promedio, por
+  lo que se aumentaron las repeticiones a 10 y se pasó a usar la mediana
+  (robusta ante atípicos) para el gráfico.
 - **Qué parte comprendo mejor**: la implementación de `mimatmul` (triple bucle
   sobre las dimensiones) y la lógica del benchmark (calentamiento,
   `time.perf_counter`, repeticiones, guardado en CSV y gráfico).
