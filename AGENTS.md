@@ -12,17 +12,16 @@ P0E1 y P0E2.
 
 ## Instrucción principal
 
-Antes de trabajar, leé `PENDIENTES.md` completo y seguí su **plan de acción**
-de forma **autónoma**, verificando cada paso (instalaciones, clones, venv,
-pytest, commits, push) sin pedir permiso al estudiante. Solo consultalo si algo
-te bloquea o necesitás datos que no están en el repositorio.
+Trabajá de forma **autónoma** y verificá cada paso (instalaciones, clones,
+venv, pytest, commits, push) sin pedir permiso al estudiante. Solo consultalo
+si algo te bloquea o necesitás datos que no están en el repositorio. Seguí las
+reglas de este archivo.
 
 ## Estructura del repositorio
 
 ```
 ├── README.md                 Instrucciones para instalar y ejecutar
 ├── AGENTS.md                 Instrucciones para OpenCode
-├── PENDIENTES.md             Nota de traspaso y plan de acción
 ├── pytest.ini                Configuración de pytest (pythonpath=src)
 ├── requirements.txt          Dependencias del proyecto
 ├── src/

@@ -141,7 +141,7 @@ Observaciones durante una ejecución representativa:
 
 Este proyecto se desarrolló usando OpenCode como agente de programación. El
 agente recibió el enunciado completo y ejecutó de forma autónoma el plan de
-acción de `PENDIENTES.md`.
+acción del proyecto.
 
 - **Qué hizo correctamente el agente**: instaló y verificó Git, creó el
   ambiente virtual con las dependencias, ejecutó `pytest` antes de cada avance,
@@ -170,4 +170,3 @@ acción de `PENDIENTES.md`.
 ## Estado
 
 P0E1 entregada. P0E2 completada: benchmark, datos, gráfico y documentación.
-Ver `PENDIENTES.md` para el detalle del plan de acción y el estado final.
