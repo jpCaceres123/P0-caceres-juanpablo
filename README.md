@@ -11,11 +11,11 @@ matrices, generando un gráfico y un análisis de CPU y RAM.
 
 ## Sistema operativo
 
-- Windows 10 Pro (64 bits)
+- Windows 11 Home Single Language (64 bits)
 
 ## Versión de Python
 
-- Python 3.14.6
+- Python 3.14.7
 
 ## Ambiente virtual
 

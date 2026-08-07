@@ -1,12 +1,26 @@
 {
-    "fecha_generacion": "2026-08-06T15:32:21",
+    "fecha_generacion": "2026-08-06T22:22:19",
     "sistema_operativo": "Windows",
-    "plataforma": "Windows-10-10.0.19045-SP0",
+    "plataforma": "Windows-11-10.0.26200-SP0",
     "arquitectura": "AMD64",
-    "modelo_procesador": "Intel(R) Core(TM) i3-10105F CPU @ 3.70GHz",
+    "version_python": "3.14.7",
+    "modelo_procesador": "Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz",
     "nucleos_logicos": 8,
-    "version_python": "3.14.6",
+    "version_numpy": "2.5.1",
     "nucleos_fisicos": 4,
-    "memoria_ram_total_bytes": 17040797696,
-    "memoria_ram_total_gb": 15.87
+    "memoria_ram_total_bytes": 8419069952,
+    "memoria_ram_total_gb": 7.84,
+    "memoria_ram_disponible_bytes": 806129664,
+    "memoria_ram_disponible_gb": 0.75,
+    "modelo_gpu": [
+        "Intel(R) UHD Graphics 630",
+        "NVIDIA GeForce GTX 1650"
+    ],
+    "disco_principal": {
+        "letra": "C:",
+        "capacidad_total_bytes": 998999322624,
+        "espacio_libre_bytes": 225520508928,
+        "capacidad_total_gb": 930.39,
+        "espacio_libre_gb": 210.03
+    }
 }
