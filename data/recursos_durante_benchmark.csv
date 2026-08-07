@@ -1,0 +1,6 @@
+tiempo_relativo_seg,cpu_porcentaje,ram_porcentaje,ram_disponible_gb,gpu_utilizacion
+0.0,0.0,88.4,0.91,0.0
+1.4,35.7,88.1,0.93,0.0
+2.62,29.3,88.2,0.92,0.0
+3.96,28.3,88.1,0.93,0.0
+5.38,25.9,87.8,0.96,0.0
