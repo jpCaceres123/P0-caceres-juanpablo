@@ -82,13 +82,13 @@ Equipo evaluado (generado con `src/system_info.py`, ver
 | Núcleos físicos | 4 |
 | Procesadores lógicos | 8 |
 | Memoria RAM total | 7.84 GB |
-| Memoria RAM disponible (durante el benchmark) | ~0.75–0.9 GB |
+| Memoria RAM disponible (durante el benchmark) | ~0.6–0.9 GB |
 | GPU | Intel UHD Graphics 630 + NVIDIA GeForce GTX 1650 |
 | Disco principal | C: — 930.39 GB total, 210.03 GB libres |
 | Python | 3.14.7 |
 | NumPy | 2.5.1 |
 
-Nota: durante la ejecución el equipo estaba muy cargado (≈88 % de RAM en uso),
+Nota: durante la ejecución el equipo estaba muy cargado (≈92 % de RAM en uso),
 por lo que la memoria disponible era baja. Por eso el benchmark usa tamaños de
 matriz moderados.
 
@@ -103,15 +103,15 @@ Tiempos medianos observados (segundos):
 
 | Tamaño | mimatmul | numpy | Diferencia |
 |---|---|---|---|
-| 25 | 0.00165 | 0.000039 | ~42× |
-| 50 | 0.0134 | 0.000054 | ~250× |
-| 100 | 0.111 | 0.000234 | ~475× |
-| 200 | 0.983 | 0.000544 | ~1800× |
+| 25 | 0.00201 | 0.000046 | ~44× |
+| 50 | 0.0125 | 0.000058 | ~217× |
+| 100 | 0.0898 | 0.000269 | ~334× |
+| 200 | 0.733 | 0.000736 | ~995× |
 
 Observaciones durante una ejecución representativa:
 
-- **CPU**: promedio 32.4 %, máximo 40.2 %.
-- **RAM**: promedio 88.0 %, máximo 88.5 %.
+- **CPU**: promedio 27.9 %, máximo 39.9 %.
+- **RAM**: promedio 92.0 %, máximo 92.2 %.
 - **GPU**: 0 % durante todo el benchmark.
 
 ### Comentario sobre el comportamiento observado
@@ -126,10 +126,10 @@ Observaciones durante una ejecución representativa:
   de llamada domina.
 - Las **repeticiones no dan exactamente el mismo tiempo** porque el sistema
   operativo intercala otros procesos, la memoria disponible cambia (este equipo
-  estaba al 88 % de RAM) y las posiciones en caché varían.
+  estaba al ~92 % de RAM) y las posiciones en caché varían.
 - La **memoria limita el benchmark**: NumPy usa 8 bytes por elemento
   (`n × n × 8` bytes) y `mimatmul` usa listas de Python, mucho más pesadas por
-  elemento. Con solo ~0.9 GB disponibles, tamaños grandes (p. ej. n > 1000 en
+  elemento. Con solo ~0.6 GB disponibles, tamaños grandes (p. ej. n > 1000 en
   NumPy o n > 300 en listas de Python) saturarían la RAM y congelarían el
   equipo.
 - Tener una **GPU no implica que el programa la use**: tanto `mimatmul` como
